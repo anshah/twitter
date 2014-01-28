@@ -100,7 +100,16 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self postPath:path parameters:nil success:success failure:failure];
 }
 
-
+//notsupported replies
+-(void) repliesTo:(NSString*)userid since:(NSString*)since_id success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation* operation, NSError* error)) failure{
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"q": [NSString stringWithFormat :@"@%@",userid]}];
+    if (since_id) {
+        [params setObject:since_id forKey:@"since_id"];
+    }
+    [params setObject:@"50" forKey:@"count"];
+    [self getPath:@"1.1/search/tweets.json" parameters:params success:success failure:failure];
+}
 
 #pragma mark - Private methods
 

@@ -16,6 +16,7 @@
 #import "RestObject.h"
 #import "User.h"
 #import "Tweet.h"
+#import "SearchResult.h"
 
 // Categories
 #import "NSDictionary+CPAdditions.h"

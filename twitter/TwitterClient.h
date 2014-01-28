@@ -35,4 +35,6 @@
 //Delete API
 -(void) deleteTweet:(NSString*)statusid success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation* operation, NSError* error)) failure;
 
+-(void) repliesTo:(NSString*)userid since:(NSString*)since_id success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation* operation, NSError* error)) failure;
+
 @end

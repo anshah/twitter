@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SearchResult.h"
 
 @interface Tweet : RestObject
 
@@ -34,6 +35,7 @@
 //user to display relative datetime on timeline
 @property (nonatomic, strong, readonly) NSString *created_at_relative;
 
+@property (nonatomic, strong, readonly) NSArray *reply_handles;
 
 //properties to track count of retweet and favorites. Could be increased, reduced by user. Hence readwrite
 @property (nonatomic, strong) NSString *retweets_count;
@@ -44,5 +46,10 @@
 //property to track retweeting and favorite behaviour by user. Hence readwrite
 @property (nonatomic) BOOL is_retweeted;
 @property (nonatomic) BOOL is_favorite;
+
+@property (nonatomic, strong, readonly) NSString* in_reply_to_status_id;
+
+//populate on TweetDetailsView
+@property (nonatomic, strong) SearchResult* replies;
 
 @end

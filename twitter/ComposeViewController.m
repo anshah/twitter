@@ -56,12 +56,13 @@
     
     //setup reply to in tweet if reply to compose
     if(self.in_reply_to){
-        NSString* startTweet = @"";
+        NSString* startTweet = [self.in_reply_to.reply_handles componentsJoinedByString:@" @" ];/*@"";
         if([self.in_reply_to isRetweet]){
             startTweet = [NSString stringWithFormat:@"@%@ ", self.in_reply_to.retweetedby_screen_name];
         }
         startTweet = [NSString stringWithFormat:@"%@@%@ ",startTweet,self.in_reply_to.screen_name ];
-        self.tweetData.text = startTweet;
+       */
+        self.tweetData.text = [startTweet substringFromIndex:1];
     }
     [self.tweetData becomeFirstResponder];
     [textCountButton setTitle: [NSString stringWithFormat: @"%d", (140-self.tweetData.text.length)]];

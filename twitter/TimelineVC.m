@@ -52,7 +52,7 @@
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
-
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNewTweet)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(addNewTweet)];
     
     [self addPullToRefreshLabel];
@@ -89,9 +89,10 @@
     //TweetCell* tweetCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     //if (tweetCell == nil)
     //{
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
-        TweetCell* tweetCell = (TweetCell *)[nib objectAtIndex:0];
-    //}
+    /*return [TweetCell createCellWithTweet: self.tweets[indexPath.row] indexPath:indexPath.row onReplyEvent:@selector(onReplyEvent:) onRetweetEvent:@selector(onRetweetEvent:) onFavoriteEvent:@selector(onFavoriteEvent:)];*/
+    // Initialization code
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
+    TweetCell* tweetCell = (TweetCell *)[nib objectAtIndex:0];
     
     Tweet *tweet = self.tweets[indexPath.row];
     
@@ -136,7 +137,7 @@
     CustomButton* replyButton = (CustomButton*)[tweetCell viewWithTag:8];
     replyButton.indexPath = indexPath.row;
     [replyButton addTarget:self action:@selector(onReplyEvent:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     CustomButton* retweetButton = (CustomButton*)[tweetCell viewWithTag:9];
     retweetButton.indexPath = indexPath.row;
     [retweetButton setSelected: tweet.is_retweeted];
@@ -151,9 +152,8 @@
     favoriteButton.indexPath = indexPath.row;
     [favoriteButton setSelected: tweet.is_favorite];
     [favoriteButton addTarget:self action:@selector(onFavoriteEvent:) forControlEvents:UIControlEventTouchUpInside];
-
-    return tweetCell;
     
+    return tweetCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

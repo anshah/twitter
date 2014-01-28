@@ -24,6 +24,10 @@
 
 @property (nonatomic, strong) NSString *created_at_relative;
 
+@property (nonatomic, strong) NSString *in_reply_to_status_id;
+
+@property (nonatomic, strong) NSArray *reply_handles;
+
 @property (nonatomic) BOOL isRetweet;
 
 @property (nonatomic) BOOL verified;
@@ -71,6 +75,13 @@ static NSDateFormatter *tweet_datetime_format = nil;
         }
         self.verified = [[self OwnOrRetweetedFromKey:@"user.verified"] intValue] > 0;
         
+        NSMutableArray* reply_handles = [NSMutableArray arrayWithObject:self.screen_name];
+        if([self isRetweet]){
+            [reply_handles addObject: self.retweetedby_screen_name];
+        }
+        self.reply_handles = [NSArray arrayWithArray:reply_handles];
+        
+        self.in_reply_to_status_id = [self.data valueOrNilForKeyPath:@"in_reply_to_status_id"];
     }
     return self;
 }

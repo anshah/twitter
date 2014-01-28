@@ -10,4 +10,9 @@
 
 @interface TweetCell : UITableViewCell
 
++(id) createCellWithTweet :(Tweet*)tweet indexPath:(int)indexPath
+              onReplyEvent:(void (^)(id sender))onReplyEvent
+            onRetweetEvent:(void (^)(id sender))onRetweetEvent
+           onFavoriteEvent:(void (^)(id sender))onFavoriteEvent;
+
 @end

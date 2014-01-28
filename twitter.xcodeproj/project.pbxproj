@@ -46,6 +46,7 @@
 		6454A2BE18967C8A00E731C9 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6454A2BD18967C8A00E731C9 /* CustomButton.m */; };
 		64A57B9A189727CE00B63234 /* verified.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A57B99189727CE00B63234 /* verified.png */; };
 		64A57B9C189731A100B63234 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A57B9B189731A100B63234 /* trash.png */; };
+		64A57B9F1897A0DD00B63234 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A57B9E1897A0DD00B63234 /* SearchResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		6454A2BD18967C8A00E731C9 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		64A57B99189727CE00B63234 /* verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified.png; sourceTree = "<group>"; };
 		64A57B9B189731A100B63234 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		64A57B9D1897A0DD00B63234 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		64A57B9E1897A0DD00B63234 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 		6D8D3D6E0083406F961146BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CCC1DF52D3B94E9285F4C2F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -257,6 +260,8 @@
 				42CC89B017B0C7B800B6D34B /* Tweet.m */,
 				42CC89B217B0D63C00B6D34B /* RestObject.h */,
 				42CC89B317B0D63C00B6D34B /* RestObject.m */,
+				64A57B9D1897A0DD00B63234 /* SearchResult.h */,
+				64A57B9E1897A0DD00B63234 /* SearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A57B9F1897A0DD00B63234 /* SearchResult.m in Sources */,
 				42CC89B917B0D7DD00B6D34B /* NSDictionary+CPAdditions.m in Sources */,
 				42CC89AA17B0C31900B6D34B /* SignedOutVC.m in Sources */,
 				42CC896117AF871500B6D34B /* TwitterClient.m in Sources */,
