@@ -14,7 +14,6 @@
 #define TWITTER_CONSUMER_KEY @"biYAqubJD0rK2cRatIQTZw"
 #define TWITTER_CONSUMER_SECRET @"2cygl2irBgMQVNuWJwMn6vXiyDnWtht7gSyuRnf0Fg"
 
-
 static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 
 @implementation TwitterClient

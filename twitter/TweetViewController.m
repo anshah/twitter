@@ -268,7 +268,7 @@
             self.tweet.retweets_count = [NSString stringWithFormat:@"%d",[self.tweet.retweets_count intValue]+1 ];
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't retweet, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+           // [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't retweet, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }];
     }
     [self.tableView reloadData];
@@ -286,8 +286,8 @@
             self.tweet.favorites_count = [NSString stringWithFormat:@"%d",[self.tweet.favorites_count intValue]-1 ];
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't undo favorite, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            NSLog(@"%@",error);
+           // [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't undo favorite, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+           // NSLog(@"%@",error);
         }];
         
     }else{
@@ -298,7 +298,7 @@
             self.tweet.favorites_count = [NSString stringWithFormat:@"%d",[self.tweet.favorites_count intValue]+1 ];
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't favorite, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+           // [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Couldn't favorite, please try again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }];
     }
 }
