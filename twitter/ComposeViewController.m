@@ -62,7 +62,7 @@
         }
         startTweet = [NSString stringWithFormat:@"%@@%@ ",startTweet,self.in_reply_to.screen_name ];
        */
-        self.tweetData.text = [startTweet substringFromIndex:1];
+        self.tweetData.text = [NSString stringWithFormat: @"@%@", startTweet];
     }
     [self.tweetData becomeFirstResponder];
     [textCountButton setTitle: [NSString stringWithFormat: @"%d", (140-self.tweetData.text.length)]];

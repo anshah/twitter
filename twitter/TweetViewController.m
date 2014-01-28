@@ -69,7 +69,7 @@
 }
 
 -(void) fetchReplies{
-    [[TwitterClient instance] repliesTo: [self.tweet.reply_handles componentsJoinedByString:@" @"] since:self.tweet.tweetid success:^(AFHTTPRequestOperation *operation, id response) {
+    [[TwitterClient instance] repliesTo: [NSString stringWithFormat: @"@%@", [self.tweet.reply_handles componentsJoinedByString:@" @"]] since:self.tweet.tweetid success:^(AFHTTPRequestOperation *operation, id response) {
         //NSLog(@"Replies:%@d",response);
         
         self.tweet.replies = [[SearchResult alloc] initWithDictionary:response];
