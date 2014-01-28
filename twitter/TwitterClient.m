@@ -11,8 +11,11 @@
 #import "AFHTTPRequestOperation.h"
 
 #define TWITTER_BASE_URL [NSURL URLWithString:@"https://api.twitter.com/"]
-#define TWITTER_CONSUMER_KEY @"biYAqubJD0rK2cRatIQTZw"
-#define TWITTER_CONSUMER_SECRET @"2cygl2irBgMQVNuWJwMn6vXiyDnWtht7gSyuRnf0Fg"
+//#define TWITTER_CONSUMER_KEY @"biYAqubJD0rK2cRatIQTZw"
+//#define TWITTER_CONSUMER_SECRET @"2cygl2irBgMQVNuWJwMn6vXiyDnWtht7gSyuRnf0Fg"
+
+#define TWITTER_CONSUMER_KEY @"whKDLSAFxbUiMbTSC9rlQ"
+#define TWITTER_CONSUMER_SECRET @"qF7QVf0HtYZxtCVWfy6lWyxETu3B889Jsbkpik84FmE"
 
 static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 
