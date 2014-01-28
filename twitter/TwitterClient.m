@@ -107,7 +107,7 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     if (since_id) {
         [params setObject:since_id forKey:@"since_id"];
     }
-    [params setObject:@"50" forKey:@"count"];
+    [params setObject:@"100" forKey:@"count"];
     [self getPath:@"1.1/search/tweets.json" parameters:params success:success failure:failure];
 }
 
