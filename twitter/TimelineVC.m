@@ -30,7 +30,9 @@
 
 @end
 
-@implementation TimelineVC
+@implementation TimelineVC{
+    UILabel* refreshLabel;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,6 +54,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(addNewTweet)];
+    
+    [self addPullToRefreshLabel];
 
     //[self.tableView registerClass: [TweetCell class] forCellReuseIdentifier:@"TweetCell"];
 }
@@ -278,12 +282,26 @@
     }
 }
 
+
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    
     float percentScrolled = 1.0*(scrollView.contentOffset.y+scrollView.frame.size.height) / self.tableView.contentSize.height;
     if(!self.loadingMoreTweets && percentScrolled > 0.9){
         self.loadingMoreTweets = YES;
-        //NSLog(@"Loading more tweets");
         [self loadMoreTweets];
+    }
+    
+    //added for pull to refresh
+    if(scrollView.contentOffset.y < 0){
+        [UIView animateWithDuration:0.25 animations:^{
+            if (scrollView.contentOffset.y < -110) {
+                // User is scrolling above the header
+                refreshLabel.text = @"Release to refresh...";
+            } else {
+                // User is scrolling somewhere within the header
+                refreshLabel.text = @"Pull down to refresh...";
+            }
+        }];
     }
 }
 
@@ -346,5 +364,30 @@
         }];
     }
 }
+
+//reload if pull to refresh is shown.
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.loadingMoreTweets) return;
+    if (scrollView.contentOffset.y <= -110) {
+        // Released above the header
+        NSLog(@"Refreshing...");
+        self.loadingMoreTweets = YES;
+        [self reload];
+    }
+}
+//view above tableview for pull to refresh
+- (void)addPullToRefreshLabel {
+    UIView* refreshHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, -50, 320, 50)];
+    refreshHeaderView.backgroundColor = [UIColor clearColor];
+    
+    refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    refreshLabel.backgroundColor = [UIColor clearColor];
+    refreshLabel.font = [UIFont boldSystemFontOfSize:12.0];
+    refreshLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [refreshHeaderView addSubview:refreshLabel];
+    [self.tableView addSubview:refreshHeaderView];
+}
+
 
 @end
