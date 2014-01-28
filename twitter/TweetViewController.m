@@ -350,9 +350,19 @@
     return YES;
 }
 */
-
+/*
 -(BOOL) tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
     return FALSE;
+}*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0){
+        return;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    TweetViewController* tweetViewController = [[TweetViewController alloc] initWithTweet: [replies objectAtIndex:(indexPath.row-1)]];
+    //[tweetViewController setTweet: [self.tweets objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:tweetViewController animated:YES];
 }
 
 
@@ -444,4 +454,6 @@
     }];
 
 }
+
+
 @end
